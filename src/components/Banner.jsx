@@ -13,7 +13,7 @@ const Banner = () => {
             </div>
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-5 my-5 sm:my-10 justify-center'>
                 <div className='p-4 lg:p-8 text-center'>
-                    <p className='text-3xl font-semibold'>10</p>
+                    <p className='text-3xl font-semibold'>8</p>
                     <p className='text-gray-500 '>Total Friends</p>
                 </div>
                 <div className='p-4 lg:p-8 text-center'>
