@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @plugin "daisyui";
 
-body{
+body {
   font-family: "Geist", sans-serif;
-  @apply container mx-auto p-2 ; 
+  @apply container mx-auto p-2;
 }
-
