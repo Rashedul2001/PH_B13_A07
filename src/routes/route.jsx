@@ -1,7 +1,7 @@
 import Home from '../pages/Home';
 import Stats from '../pages/Stats';
 import Timeline from '../pages/Timeline';
-import Details from '../pages/Details';
+import FriendDetail from '../pages/FriendDetail';
 import MainLayout from '../layouts/MainLayout';
 import { createBrowserRouter, Navigate } from 'react-router';
 
@@ -29,8 +29,8 @@ const Router = createBrowserRouter([
 
             },
             {
-                path: "Details/:id",
-                Component: Details,
+                path: "friend/:id",
+                Component: FriendDetail,
 
             }
 

@@ -1,11 +1,16 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @plugin "daisyui";
 
 body {
   font-family: "Geist", sans-serif;
   @apply container mx-auto p-2;
 }
-.card-shadow{
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.card-shadow {
   box-shadow: 0px 0px 20px 6px rgba(143, 139, 139, 0.258);
 }

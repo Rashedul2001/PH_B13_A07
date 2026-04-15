@@ -1,10 +1,11 @@
 import React from 'react';
 import BgColor from "../utils/StatusColor"
+import { NavLink } from 'react-router';
 
 
 const FriendCard = ({ friend }) => {
     return (
-        <div className='p-6 text-center card-shadow rounded-2xl '>
+        <NavLink to={`/friend/${friend.id}`} className='p-6 text-center card-shadow rounded-2xl '>
             <img src={friend.picture} alt="friend.name" className='inline-block rounded-full' />
             <p className='font-semibold text-2xl mt-3'>{friend.name}</p>
             <p className='text-gray-500 mt-2 text-sm  '>{friend.days_since_contact}d ago</p>
@@ -14,7 +15,7 @@ const FriendCard = ({ friend }) => {
                 }
             </div>
             <p className={`inline-block mt-2 p-2 ${BgColor[friend.status]} text-white text-sm font-medium rounded-full capitalize`}>{friend.status}</p>
-        </div>
+        </NavLink>
     );
 };
 
