@@ -1,5 +1,4 @@
 import { useParams } from "react-router";
-import friends from '../data/friends.json';
 import StatusColor from '../utils/StatusColor'
 import { MdSnooze } from "react-icons/md";
 import { FiArchive } from "react-icons/fi";
@@ -8,10 +7,35 @@ import callIcon from '../assets/call.png'
 import textIcon from '../assets/text.png';
 import videoIcon from '../assets/video.png'
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { FriendContext } from "../context/AllContext";
+
 
 const FriendDetail = () => {
+    const {friends, timeline, setTimeline } = useContext(FriendContext);
     const { id } = useParams();
     const friend = friends.find(f => f.id === parseInt(id));
+
+    const handleClick = (action, name, icon) => {
+        //removed modifications for simplicity.... toast can be beautified later 
+        const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with {name}</p>;
+        toast(message);
+        const date = new Date().toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        });
+        const timelineDiv = <div className="flex gap-4 justify-start items-center p-4">
+            <img src={icon} alt={action} />
+            <div>
+                {message}
+                <p className="text-gray-500">{date}</p>
+            </div>
+        </div>
+        setTimeline([...timeline, timelineDiv]);
+
+    }
+
 
 
     return (
@@ -59,15 +83,15 @@ const FriendDetail = () => {
                     <p className="text-green-950  text-xl font-medium ">Quick Check-In</p>
                     <div className="flex justify-between items-center gap-4 ">
                         <div className="p-4 text-center flex-col cursor-pointer"
-                            onClick={() => toast(<p className="text-gray-500"><span className="text-green-950 text-xl font-medium ">Call</span> with {friend.name} </p>)}>
+                            onClick={() => handleClick("Call", friend.name, callIcon)}>
                             <img src={callIcon} alt="Call" className="mb-2 w-fit object-contain" />
                             <p>Call</p>
                         </div>
-                        <div className="p-4 text-center flex-col cursor-pointer" onClick={()=> toast(<p className="text-gray-500"><span className="text-green-950 text-xl font-medium ">Text</span> with {friend.name} </p>)}>
+                        <div className="p-4 text-center flex-col cursor-pointer" onClick={() => handleClick("Text", friend.name, textIcon)}>
                             <img src={textIcon} alt="Text" className="mb-2 w-fit object-contain" />
                             <p>Text</p>
                         </div>
-                        <div className="p-4 text-center flex-col cursor-pointer" onClick={()=> toast(<p className="text-gray-500"><span className="text-green-950 text-xl font-medium ">Video</span> with {friend.name} </p>)}>
+                        <div className="p-4 text-center flex-col cursor-pointer" onClick={() => handleClick("Video", friend.name, videoIcon)}>
                             <img src={videoIcon} alt="Video" className="mb-2 w-fit object-contain" />
                             <p>Video</p>
                         </div>

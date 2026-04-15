@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { FaAngleDown } from "react-icons/fa";
-
+import { FriendContext } from "../context/AllContext";
 
 
 const Timeline = () => {
+    const {timeline} =useContext(FriendContext);
+
     return (
-        <div className="my-20 ">
+        <div className="my-20 w-11/12 sm:w-9/12 mx-auto">
             <h2 className="text-5xl font-bold mb-6">Timeline </h2>
             {/* dropdown */}
             <div className="dropdown dropdown-start">
@@ -13,6 +16,13 @@ const Timeline = () => {
                     <li><a>Item 1</a></li>
                     <li><a>Item 2</a></li>
                 </ul>
+                <div className="mt-6 space-y-6">
+                {
+                    timeline.map(item => item)
+                }
+                </div>
+
+
             </div>
 
 
