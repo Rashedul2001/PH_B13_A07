@@ -12,7 +12,7 @@ import { FriendContext } from "../context/AllContext";
 
 
 const FriendDetail = () => {
-    const {friends, timeline, setTimeline } = useContext(FriendContext);
+    const {friends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
     const { id } = useParams();
     const friend = friends.find(f => f.id === parseInt(id));
 
@@ -33,6 +33,11 @@ const FriendDetail = () => {
             </div>
         </div>
         setTimeline([...timeline, timelineDiv]);
+        const data = [...pieData].map(item=> item.name===action ? {...item, value: item.value+1} : item);
+        setPieData(data);
+
+
+
 
     }
 
