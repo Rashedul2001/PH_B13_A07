@@ -4,6 +4,7 @@ import Timeline from '../pages/Timeline';
 import FriendDetail from '../pages/FriendDetail';
 import MainLayout from '../layouts/MainLayout';
 import { createBrowserRouter, Navigate } from 'react-router';
+import NotFound from '../pages/NotFound';
 
 const Router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const Router = createBrowserRouter([
             }
 
         ],
-        errorElement: <></>
+        errorElement:<NotFound/> 
 
     },
 ]);
