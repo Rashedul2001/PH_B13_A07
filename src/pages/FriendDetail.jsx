@@ -12,28 +12,31 @@ import { FriendContext } from "../context/AllContext";
 
 
 const FriendDetail = () => {
-    const {friends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
+    const { friends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
     const { id } = useParams();
     const friend = friends.find(f => f.id === parseInt(id));
 
     const handleClick = (action, name, icon) => {
         //removed modifications for simplicity.... toast can be beautified later 
         const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with {name}</p>;
-        toast(message,{autoClose: 2000});
+        toast(message, { autoClose: 2000 });
         const date = new Date().toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
             year: "numeric"
         });
-        const timelineDiv = <div className="flex gap-4 justify-start items-center p-4">
+        const newTimelineDiv = {};
+        newTimelineDiv.element = <div className="flex gap-4 justify-start items-center p-4">
             <img src={icon} alt={action} />
             <div>
                 {message}
                 <p className="text-gray-500">{date}</p>
             </div>
         </div>
-        setTimeline([...timeline, timelineDiv]);
-        const data = [...pieData].map(item=> item.name===action ? {...item, value: item.value+1} : item);
+        newTimelineDiv.action = action;
+
+        setTimeline([...timeline, newTimelineDiv]);
+        const data = [...pieData].map(item => item.name === action ? { ...item, value: item.value + 1 } : item);
         setPieData(data);
 
 
