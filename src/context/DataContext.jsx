@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FriendContext } from './AllContext';
 
 const pieStructure = [
@@ -16,28 +16,10 @@ const DataContext = ({ children }) => {
 
 
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('friends.json');
-                if (!res.ok) throw new Error("Failed to fetch friends data");
-                const data = await res.json();
-                setFriends(data);
-            }
-            catch {
-                //catch(error)
-                // console.error("Error fetching friends data", error);
-                ;
-            }
-            finally {
-                setLoading(false);
-            }
-        };
-        fetchData();
-    }, [])
+
 
     return (
-        <FriendContext.Provider value={{ friends, loading, timeline, setTimeline, pieData, setPieData }}>
+        <FriendContext.Provider value={{ friends, loading, timeline, setTimeline, pieData, setPieData, setFriends,setLoading}}>
             {children}
         </FriendContext.Provider>
 
