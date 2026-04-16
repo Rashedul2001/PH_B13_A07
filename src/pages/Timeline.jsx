@@ -7,7 +7,7 @@ const Timeline = () => {
     const {timeline} =useContext(FriendContext);
 
     return (
-        <div className="my-20 w-11/12 sm:w-9/12 mx-auto">
+        <div className="my-10 lg:my-20 w-11/12 sm:w-9/12 mx-auto">
             <h2 className="text-5xl font-bold mb-6">Timeline </h2>
             {/* dropdown */}
             <div className="dropdown dropdown-start">

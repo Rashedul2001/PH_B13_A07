@@ -7,7 +7,10 @@ const MainLayout = () => {
     return (
         <div>
             <Navbar/>
-            <Outlet/>
+            {/* for mobile edge */}
+            <div className='container mx-auto p-4'>
+                <Outlet/>
+            </div>
             <Footer/>
             
         </div>

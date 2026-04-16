@@ -19,7 +19,7 @@ const FriendDetail = () => {
     const handleClick = (action, name, icon) => {
         //removed modifications for simplicity.... toast can be beautified later 
         const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with {name}</p>;
-        toast(message);
+        toast(message,{autoClose: 2000});
         const date = new Date().toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
@@ -44,7 +44,7 @@ const FriendDetail = () => {
 
 
     return (
-        <div className="my-20 p-6 flex gap-6 flex-col lg:flex-row">
+        <div className="my-4 sm:my-10 md:my-20 md:p-6 flex gap-6 flex-col lg:flex-row sm:w-10/12 mx-auto">
             <div className="text-center flex-1">
                 <img src={friend.picture} alt={friend.name} className="inline-block rounded-full" />
                 <p className="text-xl font-semibold mt-3">{friend.name}</p>
@@ -63,18 +63,18 @@ const FriendDetail = () => {
                 </div>
             </div>
             <div className="flex-2 space-y-6">
-                <div className="flex gap-6 justify-between">
+                <div className="flex gap-1 sm:gap-6 justify-between">
                     <div className="my-8 text-center">
-                        <p className="text-3xl font-semibold ">{friend.days_since_contact}</p>
-                        <p className="text-gray-500 mt-2 text-xl">Days Since Contact</p>
+                        <p className="text-xl sm:text-3xl font-semibold ">{friend.days_since_contact}</p>
+                        <p className="text-gray-500 mt-2 sm:text-xl ">Days Since Contact</p>
                     </div>
                     <div className="my-8 text-center">
-                        <p className="text-3xl font-semibold ">{friend.goal}</p>
-                        <p className="text-gray-500 mt-2 text-xl">Goal (Days)</p>
+                        <p className="text-xl sm:text-3xl font-semibold ">{friend.goal}</p>
+                        <p className="text-gray-500 mt-2 sm:text-xl">Goal (Days)</p>
                     </div>
                     <div className="my-8 text-center">
-                        <p className="text-3xl font-semibold ">{friend.next_due_date}</p>
-                        <p className="text-gray-500 mt-2 text-xl">Next Due</p>
+                        <p className="text-xl sm:text-3xl font-semibold ">{friend.next_due_date}</p>
+                        <p className="text-gray-500 mt-2 sm:text-xl">Next Due</p>
                     </div>
                 </div>
                 <div className="p-6">

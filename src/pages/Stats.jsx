@@ -9,11 +9,11 @@ const Stats = () => {
 
 
     return (
-        <div className="my-20 ">
-            <p className="text-5xl font-bold mb-6">Friendship Analytics</p>
+        <div className="my-6 md:my-20 ">
+            <p className="text-3xl md:text-5xl font-bold mb-6">Friendship Analytics</p>
             <div className="p-8">
                 <p className=" mb-6 text-xl font-medium">By Interaction Type</p>
-                <PieChart className="w-11/12 mx-auto" style={{ width: '100%', maxWidth: '500px', maxHeight: '60vh', aspectRatio: 1 }} responsive>
+                <PieChart margin={{top:20}}  style={{ width: '100%', maxWidth: '400px', maxHeight: '60vh', aspectRatio: 1, margin: '0 auto' }} responsive>
                     <Pie
                         data={pieData}
                         innerRadius="80%"
@@ -28,8 +28,11 @@ const Stats = () => {
                     />
 
                     <Tooltip/>
-                    {/*don't know why..... margin is not working*/}
-                    <Legend  wrapperStyle={{paddingTop:40}}/>
+                    {/*margin top is not working*/}
+                    <Legend 
+                        iconType="circle"
+                        wrapperStyle={{ paddingTop:20}}
+                    />
                 </PieChart>
             </div>
         </div>

@@ -11,7 +11,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className='relative flex justify-between items-center px-10'>
+        <nav className='relative flex justify-between items-center px-10 h-20 '>
             <div className=''>
                 <NavLink to="/"  ><img src={logo} alt="Logo Keen Keeper" className='' /></NavLink>
             </div>
