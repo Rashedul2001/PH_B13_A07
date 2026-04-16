@@ -1,3 +1,5 @@
+//TODO: split the page into components and utils 
+
 import { useParams } from "react-router";
 import StatusColor from '../utils/StatusColor'
 import { MdSnooze } from "react-icons/md";
@@ -17,8 +19,8 @@ const FriendDetail = () => {
     const friend = friends.find(f => f.id === parseInt(id));
 
     const handleClick = (action, name, icon) => {
-        //removed modifications for simplicity.... toast can be beautified later 
-        const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with {name}</p>;
+
+        const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with <span className="text-green-950 font-bold text-xl">{name}</span></p>;
         toast(message, { autoClose: 2000 });
         const date = new Date().toLocaleDateString("en-US", {
             month: "long",
@@ -36,14 +38,10 @@ const FriendDetail = () => {
         newTimelineDiv.action = action;
 
         setTimeline([...timeline, newTimelineDiv]);
-        const data = [...pieData].map(item => item.name === action ? { ...item, value: item.value + 1 } : item);
+        const data = [...pieData].map(item => item.name === action ? { ...item, count: item.count + 1 } : item);
         setPieData(data);
 
-
-
-
     }
-
 
 
     return (

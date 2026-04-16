@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FriendContext } from "../context/AllContext";
+import NoData from "../components/NoData";
 
 
 
@@ -20,12 +21,15 @@ const Timeline = () => {
                 <option>Text</option>
                 <option>Video</option>
             </select>
-
-            <div className="mt-6 space-y-6">
-                {
-                    filteredTimeline.map((item, idx) => <div key={idx}>{item.element}</div>)
-                }
-            </div>
+            {
+                timeline.length > 0 ?
+                    <div className="mt-6 space-y-6">
+                        {
+                            filteredTimeline.map((item, idx) => <div key={idx}>{item.element}</div>)
+                        }
+                    </div>
+                    : <NoData />
+            }
 
         </div>
     );

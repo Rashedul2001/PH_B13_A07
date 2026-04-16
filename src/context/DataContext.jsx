@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { FriendContext } from './AllContext';
 
 const pieStructure = [
-    { name: "Call", value: 0, fill: "#244D3F" },
-    { name: "Text", value: 0, fill: "#7E35E1" },
-    { name: "Video", value: 0, fill: "#B53389" }
+    { name: "Call", count: 0, fill: "#244D3F" },
+    { name: "Text", count: 0, fill: "#7E35E1" },
+    { name: "Video", count: 0, fill: "#B53389" }
 ];
 
 const DataContext = ({ children }) => {
