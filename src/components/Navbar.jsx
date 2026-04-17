@@ -11,7 +11,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(true);
 
     return (
-        <nav className='flex justify-between items-center px-10 h-10 '>
+        <nav className='flex justify-between items-center px-10 mt-3 h-14 shadow-md'>
             <div className=''>
                 <NavLink to="/"  ><img src={logo} alt="Logo Keen Keeper" className='' /></NavLink>
             </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
             </div>
 
 
-            <div className='hidden sm:flex items-center gap-4 '>
+            <div className='hidden sm:flex items-center gap-4  '>
                 <NavLink to="/" className={({ isActive }) => `flex items-center gap-1 p-2 rounded-sm font-medium ${isActive && "bg-green-900 text-white"}`}><RiHome2Line /> Home</NavLink>
                 <NavLink to="/timeline" className={({ isActive }) => `flex items-center gap-1 p-2 rounded-sm font-medium ${isActive ? "bg-green-900 text-white" : ""}`}><CiClock2 /> Timeline</NavLink>
                 <NavLink to="/stats" className={({ isActive }) => `flex items-center gap-1 p-2 rounded-sm font-medium ${isActive ? "bg-green-900 text-white" : ""}`}><AiOutlineStock /> Stats</NavLink>

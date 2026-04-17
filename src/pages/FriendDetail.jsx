@@ -13,7 +13,9 @@ import { useContext } from "react";
 import { FriendContext } from "../context/AllContext";
 
 
+
 const FriendDetail = () => {
+
     const { friends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
     const { id } = useParams();
     const friend = friends.find(f => f.id === parseInt(id));
@@ -22,22 +24,23 @@ const FriendDetail = () => {
 
         const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with <span className="text-green-950 font-bold text-xl">{name}</span></p>;
         toast(message, { autoClose: 2000 });
-        const date = new Date().toLocaleDateString("en-US", {
+
+        const newTimeline = {};
+        newTimeline.date = new Date();
+        const formattedDate = newTimeline.date.toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
             year: "numeric"
         });
-        const newTimelineDiv = {};
-        newTimelineDiv.element = <div className="flex gap-4 justify-start items-center p-4">
+        newTimeline.element = <div className="flex gap-4 justify-start items-center p-4">
             <img src={icon} alt={action} />
             <div>
                 {message}
-                <p className="text-gray-500">{date}</p>
+                <p className="text-gray-500">{formattedDate}</p>
             </div>
         </div>
-        newTimelineDiv.action = action;
-
-        setTimeline([...timeline, newTimelineDiv]);
+        newTimeline.action = action;
+        setTimeline([...timeline, newTimeline]);
         const data = [...pieData].map(item => item.name === action ? { ...item, count: item.count + 1 } : item);
         setPieData(data);
 

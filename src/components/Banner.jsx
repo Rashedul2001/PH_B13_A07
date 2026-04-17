@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaPlus } from "react-icons/fa";
+import { FriendContext } from '../context/AllContext';
 
 
 const Banner = () => {
+    const { timeline } = useContext(FriendContext);
+    const interactionPerMonth = (timeline) => {
+        const now = new Date();
+        const interCnt = timeline.reduce((count, entry) => count + (entry.date.getMonth() === now.getMonth() && entry.date.getFullYear() === now.getFullYear() ? 1 : 0), 0);
+        return interCnt;
+    };
     return (
         <>
             <div className='mt-10 sm:mt-20 text-center '>
@@ -25,7 +32,7 @@ const Banner = () => {
                     <p className='text-gray-500 '>Need Attention</p>
                 </div>
                 <div className='p-4 lg:p-8 text-center'>
-                    <p className='text-3xl font-semibold'>12</p>
+                    <p className='text-3xl font-semibold'>{interactionPerMonth(timeline)}</p>
                     <p className='text-gray-500 '>Interactions This Month</p>
                 </div>
 
