@@ -11,7 +11,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(true);
 
     return (
-        <nav className='flex justify-between items-center px-10 mt-3 h-14 shadow-md'>
+        <nav className='flex justify-between items-center px-10 mt-1 h-14 shadow-md'>
             <div className=''>
                 <NavLink to="/"  ><img src={logo} alt="Logo Keen Keeper" className='' /></NavLink>
             </div>
