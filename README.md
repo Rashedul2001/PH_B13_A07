@@ -1,16 +1,26 @@
-# React + Vite
+# Keen Keeper
+A React based Web Application designed to help users to interact and  track & visualize their interaction with Friends.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Technologies Used
+- **React** - Component based UI Development 
+- **React Router** - Navigation and Routing
+- **Tailwind CSS + Daisy UI** - Utility First styling and UI components
+- **React Icons** - Icons for Everything
+- **React Toastify** - Notification
+- **Context API** - Global State Management and Data Passing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
+- **Responsiveness** - Seamless and Beautiful UI and UX among small, medium and large devices
+- **Timeline View** - Show Interactions between your Friends
+- **Stats Page** - Show Analytics for your interactions
+- **Dynamic filtering** - Filter Interactions by All interaction, Call, Text and Video
+- **Beautiful Error page** - 404 page and No Data Sections
+- **Toast Notification** -  With customized styling and duration
+- **Full Screen Drawer Menu** - For mobile Navigation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
