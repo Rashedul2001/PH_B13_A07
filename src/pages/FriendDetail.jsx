@@ -11,17 +11,25 @@ import videoIcon from '../assets/video.png'
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { FriendContext } from "../context/AllContext";
+import Loading from "../components/Loading";
 
 
 
 const FriendDetail = () => {
 
-    const { friends,setFriends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
+    const { friends, setFriends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
     const { id } = useParams();
     const friend = friends.find(f => f.id === parseInt(id));
 
+    //fallback for stating website at detail page
+    if (!friend) {
+        return (
+            <Loading />
+        );
+    }
+
     const handleClick = (action, name, icon) => {
-        setFriends(friends.map(f => f.id === friend.id ? {...f,days_since_contact: 0} : f));
+        setFriends(friends.map(f => f.id === friend.id ? { ...f, days_since_contact: 0 } : f));
         const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with <span className="text-green-950 font-bold text-xl">{name}</span></p>;
         toast(message, { autoClose: 2000 });
 
