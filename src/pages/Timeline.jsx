@@ -22,7 +22,7 @@ const Timeline = () => {
                 <option>Video</option>
             </select>
             {
-                timeline.length > 0 ?
+                filteredTimeline.length > 0 ?
                     <div className="mt-6 space-y-6">
                         {
                             filteredTimeline.map((item, idx) => <div key={idx}>{item.element}</div>)

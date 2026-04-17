@@ -1,6 +1,6 @@
 const NoData = () => {
     return (
-        <section className="flex flex-col items-center justify-center py-16 px-4 bg-gray-50 rounded-lg shadow-sm text-center">
+        <section className="flex flex-col items-center justify-center py-16 px-4 mt-6 md:mt-16 bg-gray-50 rounded-lg shadow-sm text-center">
             <h2 className="text-3xl font-bold text-green-900 mb-4">
                 Currently there is no data to show here
             </h2>
