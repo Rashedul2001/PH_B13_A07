@@ -16,12 +16,12 @@ import { FriendContext } from "../context/AllContext";
 
 const FriendDetail = () => {
 
-    const { friends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
+    const { friends,setFriends, timeline, setTimeline, pieData, setPieData } = useContext(FriendContext);
     const { id } = useParams();
     const friend = friends.find(f => f.id === parseInt(id));
 
     const handleClick = (action, name, icon) => {
-
+        setFriends(friends.map(f => f.id === friend.id ? {...f,days_since_contact: 0} : f));
         const message = <p className="text-gray-500"><span className="text-green-950 font-bold text-xl">{action}</span> with <span className="text-green-950 font-bold text-xl">{name}</span></p>;
         toast(message, { autoClose: 2000 });
 
