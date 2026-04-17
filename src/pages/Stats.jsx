@@ -14,9 +14,8 @@ const Stats = () => {
         <div className="my-6 md:my-20 ">
             <p className="text-3xl md:text-5xl font-bold mb-6">Friendship Analytics</p>
             <div className="p-8">
-                <p className=" mb-6 text-xl font-medium">By Interaction Type</p>
-                {interactionCnt > 0 ?
-
+                {interactionCnt > 0 ? <>
+                    <p className=" mb-6 text-xl font-medium">By Interaction Type</p>
                     <PieChart margin={{ top: 20 }} style={{ width: '100%', maxWidth: '400px', maxHeight: '60vh', aspectRatio: 1, margin: '0 auto' }} responsive>
                         <Pie
                             data={pieData}
@@ -37,7 +36,7 @@ const Stats = () => {
                             iconType="circle"
                             wrapperStyle={{ paddingTop: 20 }}
                         />
-                    </PieChart>
+                    </PieChart></>
                     : <NoData />
                 }
             </div>

@@ -32,7 +32,7 @@ const FriendDetail = () => {
             day: "numeric",
             year: "numeric"
         });
-        newTimeline.element = <div className="flex gap-4 justify-start items-center p-4">
+        newTimeline.element = <div className="flex gap-4 justify-start items-center p-4 card-shadow rounded-md">
             <img src={icon} alt={action} />
             <div>
                 {message}
@@ -48,7 +48,7 @@ const FriendDetail = () => {
 
 
     return (
-        <div className="my-4 sm:my-10 md:my-20 md:p-6 flex gap-6 flex-col lg:flex-row sm:w-10/12 mx-auto">
+        <div className="my-4 sm:my-10 md:my-20 md:p-6 flex gap-6 flex-col lg:flex-row sm:w-11/12 mx-auto">
             <div className="text-center flex-1">
                 <img src={friend.picture} alt={friend.name} className="inline-block rounded-full" />
                 <p className="text-xl font-semibold mt-3">{friend.name}</p>
@@ -68,17 +68,17 @@ const FriendDetail = () => {
             </div>
             <div className="flex-2 space-y-6">
                 <div className="flex gap-1 sm:gap-6 justify-between">
-                    <div className="my-8 text-center">
+                    <div className="py-5 flex-1 text-center justify-center card-shadow rounded-md">
                         <p className="text-xl sm:text-3xl font-semibold ">{friend.days_since_contact}</p>
                         <p className="text-gray-500 mt-2 sm:text-xl ">Days Since Contact</p>
                     </div>
-                    <div className="my-8 text-center">
+                    <div className="py-5 flex-1 text-center justify-center card-shadow rounded-md">
                         <p className="text-xl sm:text-3xl font-semibold ">{friend.goal}</p>
                         <p className="text-gray-500 mt-2 sm:text-xl">Goal (Days)</p>
                     </div>
-                    <div className="my-8 text-center">
+                    <div className="py-5 flex-1 text-center justify-center card-shadow rounded-md">
                         <p className="text-xl sm:text-3xl font-semibold ">{friend.next_due_date}</p>
-                        <p className="text-gray-500 mt-2 sm:text-xl">Next Due</p>
+                        <p className="text-gray-500 mt-2 sm:text-xl">Next Due Date</p>
                     </div>
                 </div>
                 <div className="p-6">
@@ -86,24 +86,24 @@ const FriendDetail = () => {
                         <p className="text-green-950  text-xl font-medium ">Relationship Goal</p>
                         <button className="btn text-xl font-medium">Edit</button>
                     </div>
-                    <p className="text-gray-500 mt-4 ">Connect every <span className="font-bold text-black"> 30 days</span></p>
+                    <p className="text-gray-500 mt-4 ">Connect every <span className="font-bold text-xl text-black"> {friend.goal} days</span> </p>
                 </div>
                 <div className="p-6 space-y-4 ">
                     <p className="text-green-950  text-xl font-medium ">Quick Check-In</p>
                     <div className="flex justify-between items-center gap-4 ">
-                        <div className="p-4 text-center flex-col cursor-pointer"
+                        <button className="flex-1 p-4 text-center flex-col cursor-pointer card-shadow rounded-md"
                             onClick={() => handleClick("Call", friend.name, callIcon)}>
-                            <img src={callIcon} alt="Call" className="mb-2 w-fit object-contain" />
+                            <img src={callIcon} alt="Call" className="mb-2 w-fit object-contain inline-block" />
                             <p>Call</p>
-                        </div>
-                        <div className="p-4 text-center flex-col cursor-pointer" onClick={() => handleClick("Text", friend.name, textIcon)}>
-                            <img src={textIcon} alt="Text" className="mb-2 w-fit object-contain" />
+                        </button>
+                        <button className="flex-1 p-4 text-center flex-col cursor-pointer card-shadow rounded-md" onClick={() => handleClick("Text", friend.name, textIcon)}>
+                            <img src={textIcon} alt="Text" className="mb-2 w-fit object-contain inline-block" />
                             <p>Text</p>
-                        </div>
-                        <div className="p-4 text-center flex-col cursor-pointer" onClick={() => handleClick("Video", friend.name, videoIcon)}>
-                            <img src={videoIcon} alt="Video" className="mb-2 w-fit object-contain" />
+                        </button>
+                        <button className="flex-1 p-4 text-center flex-col cursor-pointer card-shadow rounded-md" onClick={() => handleClick("Video", friend.name, videoIcon)}>
+                            <img src={videoIcon} alt="Video" className="mb-2 w-fit object-contain inline-block" />
                             <p>Video</p>
-                        </div>
+                        </button>
 
                     </div>
                 </div>
